@@ -2,9 +2,9 @@
 Contributors: EnvoThemes
 Tags: one-column, two-columns, full-width-template, right-sidebar, custom-background, custom-menu, custom-header, editor-style, featured-images, translation-ready, custom-logo, threaded-comments, footer-widgets, rtl-language-support, blog, e-commerce
 Requires at least: 4.4
-Tested up to: 6.5
+Tested up to: 6.8
 Requires PHP: 5.6
-Stable tag: 1.2.1
+Stable tag: 1.2.3
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -98,6 +98,15 @@ All other resources and theme elements are licensed under the [GNU GPL](http://w
 Envo Shop is distributed under the terms of the GNU GPL (http://www.gnu.org/licenses/gpl-3.0.txt), version 3 or later.
 
 == Changelog ==
+
+= Version 1.2.3 =
+* Updated YITH wishlist icon size
+* Tested with WooCommerce 9.8
+* Tested with Elementor 3.28
+* Tested with WP 6.8
+
+= Version 1.2.2 =
+* Updated footer credits
 
 = Version 1.2.1 =
 * Tested with WooCommerce 9.0
