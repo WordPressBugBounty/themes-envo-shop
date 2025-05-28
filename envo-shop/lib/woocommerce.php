@@ -105,11 +105,14 @@ if (!function_exists('envo_shop_head_wishlist')) {
 if (!function_exists('envo_shop_head_compare')) {
 
     function envo_shop_head_compare() {
-        if (function_exists('yith_woocompare_constructor')) {
+        if (class_exists( 'YITH_WooCompare_Frontend' )) {
+			
             global $yith_woocompare;
+			wp_enqueue_script( 'yith-woocompare-main' );
+			$url =  method_exists('YITH_WooCompare_Frontend', 'view_table_url') ? $yith_woocompare->obj->view_table_url() :  YITH_WooCompare_Frontend::instance()->get_table_url();
             ?>
-            <div class="header-compare product">
-                <a class="compare added" rel="nofollow" href="<?php echo esc_url($yith_woocompare->obj->view_table_url()); ?>" data-tooltip="<?php esc_attr_e('Compare', 'envo-shop'); ?>" title="<?php esc_attr_e('Compare', 'envo-shop'); ?>">
+            <div class="header-compare product yith-woocompare-counter">
+                <a class="compare added yith-woocompare-open" rel="nofollow" href="<?php echo esc_url($url); ?>" data-tooltip="<?php esc_attr_e('Compare', 'envo-shop'); ?>" title="<?php esc_attr_e('Compare', 'envo-shop'); ?>">
                     <i class="la la-sync"></i>
                 </a>
             </div>
@@ -126,19 +129,21 @@ if (!function_exists('envo_shop_compare_wishlist_buttons')) {
 
     function envo_shop_compare_wishlist_buttons() {
         $double = '';
-        if (function_exists('yith_woocompare_constructor') && function_exists('YITH_WCWL')) {
+        if (class_exists( 'YITH_WooCompare_Frontend' ) && function_exists('YITH_WCWL')) {
             $double = ' d-compare-wishlist';
         }
         ?>
         <div class="product-compare-wishlist<?php echo esc_attr($double); ?>">
             <?php
-            if (function_exists('yith_woocompare_constructor')) {
+            if (class_exists( 'YITH_WooCompare_Frontend' )) {
                 global $product, $yith_woocompare;
+				wp_enqueue_script( 'yith-woocompare-main' );
                 $product_id = !is_null($product) ? yit_get_prop($product, 'id', true) : 0;
                 // return if product doesn't exist
                 if (empty($product_id) || apply_filters('yith_woocompare_remove_compare_link_by_cat', false, $product_id))
                     return;
-                $url = is_admin() ? "#" : $yith_woocompare->obj->add_product_url($product_id);
+				$url_compare =  method_exists('YITH_WooCompare_Frontend', 'view_table_url') ? $yith_woocompare->obj->view_table_url() :  YITH_WooCompare_Frontend::instance()->get_table_url();
+                $url = is_admin() ? "#" : $url_compare;
                 ?>
                 <div class="product-compare">
                     <a class="compare" rel="nofollow" data-product_id="<?php echo absint($product_id); ?>" href="<?php echo esc_url($url); ?>" title="<?php esc_attr_e('Compare', 'envo-shop'); ?>">
