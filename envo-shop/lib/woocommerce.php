@@ -132,6 +132,7 @@ if (!function_exists('envo_shop_compare_wishlist_buttons')) {
         if (class_exists( 'YITH_WooCompare_Frontend' ) && function_exists('YITH_WCWL')) {
             $double = ' d-compare-wishlist';
         }
+		if (is_admin()) return;
         ?>
         <div class="product-compare-wishlist<?php echo esc_attr($double); ?>">
             <?php
@@ -142,7 +143,7 @@ if (!function_exists('envo_shop_compare_wishlist_buttons')) {
                 // return if product doesn't exist
                 if (empty($product_id) || apply_filters('yith_woocompare_remove_compare_link_by_cat', false, $product_id))
                     return;
-				$url_compare =  method_exists('YITH_WooCompare_Frontend', 'view_table_url') ? $yith_woocompare->obj->view_table_url() :  YITH_WooCompare_Frontend::instance()->get_table_url();
+				$url_compare =  method_exists('YITH_WooCompare_Frontend', 'get_table_url') ? YITH_WooCompare_Frontend::instance()->get_table_url() :  $yith_woocompare->obj->view_table_url();
                 $url = is_admin() ? "#" : $url_compare;
                 ?>
                 <div class="product-compare">
