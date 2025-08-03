@@ -4,7 +4,7 @@ Theme URI: https://envothemes.com/free-envo-shop/
 Author: EnvoThemes
 Author URI: https://envothemes.com/
 Description: Envo Shop is a fast, clean and modern-looking responsive free WooCommerce WordPress theme. This theme supports popular page builders like Elementor, KingComposer, Beaver Builder, SiteOrigin, Thrive Architect, Divi, Brizy, Visual Composer, etc. Envo Shop is compatible with YITH WooCommerce Wishlist, YITH WooCommerce Compare, WooCommerce Variation Swatches and other popular plugins. The theme is SEO friendly, WPML and RTL ready. Documentation: https://envothemes.com/docs/docs/envo-shop/ Theme demo ready to import: https://envothemes.com/envo-shop/
-Version: 1.2.7
+Version: 1.2.8
 Tested up to: 6.8
 Requires PHP: 5.6
 License: GNU General Public License v3
@@ -1218,23 +1218,33 @@ i.yith-wcwl-icon.fa {
     font-family: "FontAwesome";
     font-weight: 400;
 }
-.yith-wcwl-add-to-wishlist a {
+.yith-wcwl-add-to-wishlist a, .yith-add-to-wishlist-button-block a {
     color: #666;
 }
-.woocommerce ul.products li.product .yith-wcwl-add-to-wishlist, .woocommerce ul.products li.product a.compare {
+.woocommerce ul.products li.product .yith-wcwl-add-to-wishlist, 
+.woocommerce ul.products li.product a.compare, 
+.woocommerce ul.products li.product .yith-add-to-wishlist-button-block {
     font-size: 12px;
-    line-height: 15px;
     float: left;
     max-width: 100%;
     width: 100%;
     border-top: 1px solid #e6e6e6;
     padding-top: 10px;
     color: #666;
+    margin-top: 10px;
 }
-.yith-wcwl-add-button .add_to_wishlist svg.yith-wcwl-icon-svg, .yith-wcwl-add-button .add_to_wishlist img, .yith-wcwl-add-to-wishlist svg.yith-wcwl-icon-svg, .yith-wcwl-add-to-wishlist .add_to_wishlist img {
+.yith-wcwl-add-button .add_to_wishlist svg.yith-wcwl-icon-svg,
+.yith-wcwl-add-button .add_to_wishlist img, .yith-wcwl-add-to-wishlist svg.yith-wcwl-icon-svg, 
+.yith-wcwl-add-to-wishlist svg.yith-wcwl-icon-svg, 
+.yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button--anchor svg.yith-wcwl-icon-svg, .yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button--anchor img{
     width: 15px;
 }
-.woocommerce ul.products li.product .d-compare-wishlist .yith-wcwl-add-to-wishlist, .woocommerce ul.products li.product .d-compare-wishlist a.compare {
+.yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button--anchor {
+    top: -5px;
+}
+.woocommerce ul.products li.product .d-compare-wishlist .yith-wcwl-add-to-wishlist,
+.woocommerce ul.products li.product .d-compare-wishlist .yith-add-to-wishlist-button-block, 
+.woocommerce ul.products li.product .d-compare-wishlist a.compare {
     max-width: 50%;
 }
 .woocommerce ul.products li.product a.compare {
