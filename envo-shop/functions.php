@@ -1,8 +1,8 @@
 <?php
 /**
- * The current version of the theme.
+ * The current version of the theme (also when a child theme is active).
  */
-define('ENVO_SHOP_VERSION', '1.2.1');
+define('ENVO_SHOP_VERSION', wp_get_theme( get_template() )->get( 'Version' ));
 
 add_action('after_setup_theme', 'envo_shop_setup');
 
